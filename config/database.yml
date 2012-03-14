@@ -1,14 +1,7 @@
 development:
-  adapter: mysql2
-  database: cubic_poo_development
+  adapter: postgresql
+  database: wombats_development
   username: root
   password: password
   host: localhost
-  encoding: utf8
-
-production:
-  adapter: mysql2
-  database: cubic_poo_production
-  username: root
-  password: password
   encoding: utf8
