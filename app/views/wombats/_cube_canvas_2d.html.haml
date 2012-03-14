@@ -1,0 +1,31 @@
+%canvas#cubes{:style => "width:100; height:100"}==Your user agent does not support the HTML5 Canvas element.
+
+// 50px X 31px X 13px
+:javascript
+  function lineCube() {
+    var canvas = document.getElementById("cubes");
+    var ctx = canvas.getContext("2d");
+
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth   = 1;
+
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(50, 25);
+    ctx.lineTo(50, 50);
+    ctx.lineTo(25, 50);
+    ctx.lineTo(25, 25);
+
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  lineCube();
+
+  $('#cubes').animate({
+    marginLeft: '+=200',
+    marginTop: '+=150',
+    height: '500'
+  }, 3000, function() {
+    // Animation complete.
+  });

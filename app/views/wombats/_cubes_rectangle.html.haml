@@ -1,0 +1,21 @@
+%img{:src => '/assets/main_wombat.png'}
+
+%canvas#cubes{:style => "width:300px; height:300px"}==Your user agent does not support the HTML5 Canvas element.
+
+:javascript
+  var canvas = $('#cubes')[0];
+  var ctx = canvas.getContext("2d");
+
+  function rectangles() {
+    ctx.fillRect(10, 10, 10, 10);
+    ctx.fillRect(0, 0, 300, 300);
+    $('#cubes').delay(3000);
+    canvas.setAttribute('width', '300'); // clears the canvas
+    ctx.fillRect(40, 40, 10, 10);
+  }
+  rectangles();
+
+  function moveCubes() {
+    ctx.fillRect(200, 0, 150, 75);
+  }
+  moveCubes();

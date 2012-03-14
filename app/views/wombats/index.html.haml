@@ -1,0 +1,11 @@
+#cubes
+  %svg{:xmlns => "http://www.w3.org/2000/svg", :version => "1.1"}
+    = render :partial => 'cube_svg', :locals => {:cube_side_len => 15}
+    = render :partial => 'cube_svg', :locals => {:cube_side_len => 7, :x_start => 25, :y_start => 16}
+    = render :partial => 'cube_svg', :locals => {:cube_side_len => 7, :x_start => 6, :y_start => 19}
+
+#wombats
+  %ul
+    - @wombats.each do |w|
+      %li
+        %img{:src => w.image, :width => '400px', :height => '250px'}

@@ -1,0 +1,14 @@
+#cubes
+  %img{:src => '/assets/neon_wombat.jpg', :width => '5px', :id => 'main-wombat'}
+
+%canvas#faker{:style => "width:300px; height:300px"}==Your user agent does not support the HTML5 Canvas element.
+
+:javascript
+  $('#main-wombat').animate({
+    marginLeft: '+=200',
+    marginTop: '+=100',
+    width: '500px',
+    height: '374px'
+  }, 3000, function() {
+    // Animation complete.
+  });

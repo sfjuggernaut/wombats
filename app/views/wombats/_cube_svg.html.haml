@@ -1,0 +1,50 @@
+// 240 edges
+// 120 diagonal edge
+// 60 height difference from top of facing to top of backing side
+- cube_side_len ||= 25
+- cube_side_grow_len ||= 200
+- x_start ||= 10
+- y_start ||= 10
+- duration ||= "1.5s"
+- x_distance ||= 300
+- y_distance ||= 40
+- animate = true
+
+// XXX: this is ugly
+- line_points = []
+- x1 = x_start
+- y1 = y_start
+- x2 = x_start + cube_side_len / 2
+- y2 = y_start - cube_side_len / 4
+- line_points << [x1,y1,x2,y2]
+- x1 = x2
+- y1 = y2
+- x2 = x1 + cube_side_len
+- y2 = y1
+- line_points << [x1,y1,x2,y2]
+- x1 = x2
+- y1 = y2
+- x2 = x1
+- y2 = y1 + cube_side_len
+- line_points << [x1,y1,x2,y2]
+- x1 = x2
+- y1 = y2
+- x2 = x1 - cube_side_len / 2
+- y2 = y1 + cube_side_len / 4
+- line_points << [x1,y1,x2,y2]
+- x1 = x_start + cube_side_len
+- y1 = y_start
+- x2 = x1 + cube_side_len / 2
+- y2 = y1 - cube_side_len / 4
+- line_points << [x1,y1,x2,y2]
+
+%g{:transform => "translate(0,0)"}
+  %rect{:x => x_start, :y => y_start, :width => cube_side_len, :height => cube_side_len, :stroke => "black", :stroke_width => "2", :fill => 'none'}
+    - if animate
+      %animateTransform{:attributeName => "transform", :attributeType => "XML", :type => "scale", :from => "1", :to => "3", :additive => "sum", :begin => "0s", :dur => duration, :fill => "freeze"}
+      %animateMotion{:path => "M #{x_start} #{y_start} L #{x_start + x_distance} #{y_start + y_distance}", :dur => duration, :repeatCount => "1", :fill => "freeze"}
+  - line_points.each do |lp|
+    %line{:x1 => lp[0], :y1 => lp[1], :x2 => lp[2], :y2 => lp[3], :style => "stroke:rgb(0,0,0);stroke-width:1"}
+      - if animate
+        %animateTransform{:attributeName => "transform", :attributeType => "XML", :type => "scale", :from => "1", :to => "3", :additive => "sum", :begin => "0s", :dur => duration, :fill => "freeze"}
+        %animateMotion{:path => "M #{x_start} #{y_start} L #{x_start + x_distance} #{y_start + y_distance}", :dur => duration, :repeatCount => "1", :fill => "freeze"}
