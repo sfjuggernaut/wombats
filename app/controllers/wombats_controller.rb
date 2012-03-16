@@ -27,6 +27,7 @@ class WombatsController < ApplicationController
       end
 
       format.json do
+        @wombat.image = params[:image]
         if @wombat.save
           render :json => {:success => true}
         else
