@@ -99,4 +99,4 @@ DEPENDENCIES
   jquery-rails (>= 1.0.12)
   pg (= 0.13.2)
   rails (= 3.2.1)
-  uglifier
+  uglifier (= 1.2.3)
