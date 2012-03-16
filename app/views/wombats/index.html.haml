@@ -8,4 +8,5 @@
   %ul
     - @wombats.each do |w|
       %li
-        %img{:src => w.image, :width => '400px', :height => '250px'}
+        - if w.image.present?
+          %img{:src => w.image, :width => '400px', :height => '250px'}
