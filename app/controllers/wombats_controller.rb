@@ -1,7 +1,7 @@
 class WombatsController < ApplicationController
   def index
     respond_to do |format|
-      format.html { @wombats = Wombat.all.first(10) }
+      format.html { @wombats = Wombat.order('created_at DESC').limit(10) }
       format.json {
         render :json => {
           :not_yet => true
